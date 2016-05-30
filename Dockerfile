@@ -7,7 +7,7 @@ RUN apt-get update
 # curl is needed to download the xampp installer, net-tools provides netstat command for xampp
 RUN apt-get -y install curl net-tools
 
-RUN curl -o xampp-linux-installer.run "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/5.6.8/xampp-linux-x64-5.6.8-0-installer.run?from_af=true"
+RUN curl -o xampp-linux-installer.run "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/5.6.21/xampp-linux-x64-5.6.21-0-installer.run?from_af=true"
 RUN chmod +x xampp-linux-installer.run
 RUN bash -c './xampp-linux-installer.run'
 RUN ln -sf /opt/lampp/lampp /usr/bin/lampp
