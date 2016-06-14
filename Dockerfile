@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Tomas Jasek<tomsik68 (at) gmail (dot) com> 
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update 
+RUN apt-get update --fix-missing
 
 # curl is needed to download the xampp installer, net-tools provides netstat command for xampp
 RUN apt-get -y install curl net-tools
@@ -13,8 +13,7 @@ RUN bash -c './xampp-linux-installer.run'
 RUN ln -sf /opt/lampp/lampp /usr/bin/lampp
 
 # Enable XAMPP web interface(remove security checks)
-RUN bash -c 'head --lines=-7 /opt/lampp/etc/extra/httpd-xampp.conf | tee /opt/lampp/etc/extra/httpd-xampp.conf.new '
-RUN mv /opt/lampp/etc/extra/httpd-xampp.conf.new /opt/lampp/etc/extra/httpd-xampp.conf
+RUN sed -i.bak s'/Require local/Require all granted/g' /opt/lampp/etc/extra/httpd-xampp.conf
 
 # Create a /www folder and a symbolic link to it in /opt/lampp/htdocs. It'll be accessible via http://localhost:[port]/www/
 # This is convenient because it doesn't interfere with xampp, phpmyadmin or other tools in /opt/lampp/htdocs
