@@ -11,10 +11,10 @@ docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www toms
 The command above will expose the SSH server on port 41061 and HTTP server on port 41062.    
 Feel free to use your own name for the container...
 
-To connect to your webpage, visit this URL: [http://localhost:41062/www](http://localhost:41062/www)    
+To connect to your web page, visit this URL: [http://localhost:41062/www](http://localhost:41062/www)    
 And to open up the XAMPP interface: [http://localhost:41062/](http://localhost:41062/)
 
-## additionnal How tos
+## additional How tos
 
 ### ssh connection
 
@@ -29,7 +29,7 @@ ssh root@localhost -p 41061
 In your home directory, create a `my_apache_conf` directory in which you place your modified version of `httpd.conf`. Launch the service with
 
 ```
-docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www  -v ~/my_appache_conf:/opt/lamp/apache2/conf tomsik68/xampp
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www  -v ~/my_apache_conf:/opt/lamp/apache2/conf tomsik68/xampp
 ```
 
 ### Restart the server
