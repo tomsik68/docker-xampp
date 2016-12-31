@@ -24,12 +24,18 @@ default SSH password is 'root'.
 ssh root@localhost -p 41061
 ```
 
-### Use your own configuration
-
-In your home directory, create a `my_apache_conf` directory in which you place your modified version of `httpd.conf`. Launch the service with
+### get a shell terminal inside your container
 
 ```
-docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www  -v ~/my_apache_conf:/opt/lamp/apache2/conf tomsik68/xampp
+docker exec -ti myXampp bash
+```
+
+### Use your own configuration
+
+In your home directory, create a `my_apache_conf` directory in which you place any number of apache configuration directive files. As soon as they end up with the .conf extension, they will be used by the image.
+
+```
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www  -v ~/my_apache_conf:/opt/lampp/apache2/conf.d tomsik68/xampp
 ```
 
 ### Restart the server
@@ -39,4 +45,3 @@ Once you have modified configuration for example
 docker exec myXampp /opt/lampp/lampp restart
 ```
 Please report any issues in issues section on github: https://github.com/tomsik68/docker-xampp/issues where we can track them conveniently. Thanks :)
-
