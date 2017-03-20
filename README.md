@@ -30,6 +30,14 @@ ssh root@localhost -p 41061
 docker exec -ti myXampp bash
 ```
 
+### use binaries provided by XAMPP
+
+Inside docker container:
+```
+export PATH=/opt/lampp/bin:$PATH
+```
+You can then use `mysql` and friends installed in `/opt/lampp/bin` in your current bash session. If you want this to persist, you need to add it to your user or system-wide `.bashrc` (inside container).
+
 ### Use your own configuration
 
 In your home directory, create a `my_apache_conf` directory in which you place any number of apache configuration directive files. As soon as they end up with the .conf extension, they will be used by the image.
