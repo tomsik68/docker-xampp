@@ -3,11 +3,12 @@ MAINTAINER Tomas Jasek<tomsik68 (at) gmail (dot) com>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update --fix-missing
+RUN apt upgrade -y
 
 # curl is needed to download the xampp installer, net-tools provides netstat command for xampp
 RUN apt-get -y install curl net-tools
 
-RUN curl -o xampp-linux-installer.run "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/5.6.21/xampp-linux-x64-5.6.21-0-installer.run?from_af=true"
+RUN curl -o xampp-linux-installer.run "https://www.apachefriends.org/xampp-files/7.3.7/xampp-linux-x64-7.3.7-1-installer.run?from_af=true"
 RUN chmod +x xampp-linux-installer.run
 RUN bash -c './xampp-linux-installer.run'
 RUN ln -sf /opt/lampp/lampp /usr/bin/lampp
