@@ -38,7 +38,7 @@ RUN echo "autorestart=true" >> /etc/supervisor/conf.d/supervisord-openssh-server
 
 # Allow root login via password
 # root password is: root
-RUN sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+RUN sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # Set root password
 # password hash generated using this command: openssl passwd -1 -salt xampp root
