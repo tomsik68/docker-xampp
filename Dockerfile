@@ -3,9 +3,8 @@ MAINTAINER Tomas Jasek<tomsik68 (at) gmail (dot) com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Set root password
-# password hash generated using this command: openssl passwd -1 -salt xampp root
-RUN sed -ri 's/root\:\*/root\:\$1\$xampp\$5\/7SXMYAMmS68bAy94B5f\./g' /etc/shadow
+# Set root password to root, format is 'user:password'.
+RUN echo 'root:root' | chpasswd
 
 RUN apt-get update --fix-missing && \
   apt-get upgrade -y && \
@@ -32,7 +31,6 @@ RUN curl -Lo xampp-linux-installer.run "https://www.apachefriends.org/xampp-file
   # SSH server
   mkdir -p /var/run/sshd && \
   # Allow root login via password
-  # root password is: root
   sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # copy supervisor config file to start openssh-server
