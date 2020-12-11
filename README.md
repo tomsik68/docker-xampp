@@ -13,11 +13,17 @@ This image uses /www directory for your page files, so you need to mount it.
 ```
 docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp
 ```
-The command above will expose the SSH server on port 41061 and HTTP server on port 41062.    
+The command above will expose the SSH server on port 41061 and HTTP server on port 41062.
 Feel free to use your own name for the container...
 
-To connect to your web page, visit this URL: [http://localhost:41062/www](http://localhost:41062/www)    
+To connect to your web page, visit this URL: [http://localhost:41062/www](http://localhost:41062/www)
 And to open up the XAMPP interface: [http://localhost:41062/](http://localhost:41062/)
+
+## Default credentials
+
+service | username | password
+------- | -------- | ---------
+ssh     | root     | root
 
 ## additional How tos
 
