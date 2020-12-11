@@ -39,7 +39,7 @@ COPY supervisord-openssh-server.conf /etc/supervisor/conf.d/supervisord-openssh-
 # copy a startup script
 COPY startup.sh /startup.sh
 
-VOLUME [ "/var/log/mysql/", "/var/log/apache2/" ]
+VOLUME [ "/var/log/mysql/", "/var/log/apache2/", "/www", "/opt/lampp/apache2/conf.d/" ]
 
 EXPOSE 3306
 EXPOSE 22
