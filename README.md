@@ -64,3 +64,7 @@ Once you have modified configuration for example
 docker exec myXampp /opt/lampp/lampp restart
 ```
 Please report any issues in issues section on github: https://github.com/tomsik68/docker-xampp/issues where we can track them conveniently. Thanks :)
+
+### phpmyadmin
+
+If you used the `-p41062:80` with `docker run`, just browse to http://localhost:41062/phpmyadmin/ .
