@@ -1,5 +1,5 @@
 FROM debian:buster
-MAINTAINER Tomas Jasek<tomsik68 (at) gmail (dot) com>
+LABEL maintainer="Tomas Jasek<tomsik68 (at) gmail (dot) com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
