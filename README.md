@@ -2,7 +2,10 @@
 [![Docker Hub](https://img.shields.io/docker/pulls/tomsik68/xampp)](https://hub.docker.com/r/tomsik68/xampp)
 [![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.0-1abc9c.svg)](https://https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
 
-`docker pull tomsik68/xampp:latest`
+```
+docker pull tomsik68/xampp:latest
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp
+```
 
 This image is intended for PHP+MySQL development. For convenience, it also runs SSH server to connect to. __Both MySQL and phpmyadmin use default XAMPP password__.
 
