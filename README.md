@@ -1,6 +1,6 @@
 [![DockerHub:latest](https://github.com/tomsik68/docker-xampp/workflows/Docker%20Image%20CI/badge.svg)](https://hub.docker.com/r/tomsik68/xampp) 
 [![Docker Hub](https://img.shields.io/docker/pulls/tomsik68/xampp)](https://hub.docker.com/r/tomsik68/xampp)
-[![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.0-1abc9c.svg)](https://https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+[![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.0-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
 
 ```
 docker pull tomsik68/xampp:latest
