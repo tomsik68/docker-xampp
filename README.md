@@ -3,9 +3,11 @@
 [![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.0-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
 
 ```
-docker pull tomsik68/xampp:latest
 docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp
 ```
+
+docker-xampp
+===
 
 This image is intended for PHP+MySQL development. For convenience, it also runs SSH server to connect to. __Both MySQL and phpmyadmin use default XAMPP password__.
 
@@ -34,7 +36,7 @@ service | username | password
 ------- | -------- | ---------
 ssh     | root     | root
 
-## Additional How tos
+## Additional How-tos
 
 ### ssh connection
 
@@ -60,7 +62,7 @@ You can then use `mysql` and friends installed in `/opt/lampp/bin` in your curre
 
 ### Use your own configuration
 
-In your home directory, create a `my_apache_conf` directory in which you place any number of apache configuration directive files. As soon as they end up with the .conf extension, they will be used by the image.
+In your home directory, create a `my_apache_conf` directory in which you place any number of apache configuration files. As soon as they end with the `.conf` extension, they will be used by xampp. Make sure to use the following flag in your command: `-v ~/my_apache_conf:/opt/lampp/apache2/conf.d`, for example:
 
 ```
 docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www  -v ~/my_apache_conf:/opt/lampp/apache2/conf.d tomsik68/xampp
@@ -72,11 +74,10 @@ Once you have modified configuration for example
 ```
 docker exec myXampp /opt/lampp/lampp restart
 ```
-Please report any issues in issues section on github: https://github.com/tomsik68/docker-xampp/issues where we can track them conveniently. Thanks :)
 
 ### phpmyadmin
 
-If you used the `-p41062:80` with `docker run`, just browse to http://localhost:41062/phpmyadmin/ .
+If you used the flag `-p 41062:80` with `docker run`, just browse to http://localhost:41062/phpmyadmin/ .
 
 ## Use a Different XAMPP or PHP Version
 
