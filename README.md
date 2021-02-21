@@ -1,9 +1,16 @@
-[![DockerHub:latest](https://github.com/tomsik68/docker-xampp/workflows/Docker%20Image%20CI/badge.svg)](https://hub.docker.com/r/tomsik68/xampp) 
+[![DockerHub:latest](https://github.com/tomsik68/docker-xampp/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tomsik68/docker-xampp/actions/workflows/docker-image.yml) 
 [![Docker Hub](https://img.shields.io/docker/pulls/tomsik68/xampp)](https://hub.docker.com/r/tomsik68/xampp)
-[![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.0-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+[![XAMPP version](https://img.shields.io/badge/XAMPP-8.0.2-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
 
-```
-docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp
+| PHP version | Corresponding tag |
+--------------|---------------------
+| 8.0.2 | `tomsik68/docker-xampp:8`|
+| 7.3.7 | `tomsik68/docker-xampp:7` |
+| 5.6.28 | `tomsik68/docker-xampp:5` |
+
+For PHP 8, start your container like this:
+```bash
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp:8
 ```
 
 docker-xampp
