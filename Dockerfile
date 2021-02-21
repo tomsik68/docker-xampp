@@ -1,7 +1,6 @@
 ARG BASE_DEBIAN=buster
-ARG XAMPP_URL
-
 FROM debian:${BASE_DEBIAN}
+ARG XAMPP_URL
 LABEL maintainer="Tomas Jasek<tomsik68 (at) gmail (dot) com>"
 
 ENV DEBIAN_FRONTEND noninteractive
