@@ -30,7 +30,7 @@ jobs:
           tags: tomsik68/xampp:8.0.2
           build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/8.0.2/xampp-linux-x64-8.0.2-0-installer.run?from_af=true
 
-  7.3.7:
+  xampp7:
     runs-on: ubuntu-latest
     steps:
       -
@@ -55,7 +55,7 @@ jobs:
           tags: tomsik68/xampp:7.3.7,tomsik68/xampp:7
           build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/7.3.7/xampp-linux-x64-7.3.7-1-installer.run?from_af=true
 
-  5.6.28:
+  xampp5:
     runs-on: ubuntu-latest
     steps:
       -
