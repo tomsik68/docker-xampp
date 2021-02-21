@@ -1,4 +1,7 @@
-FROM debian:buster
+ARG BASE_DEBIAN=buster
+ARG XAMPP_URL
+
+FROM debian:${BASE_DEBIAN}
 LABEL maintainer="Tomas Jasek<tomsik68 (at) gmail (dot) com>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -15,7 +18,7 @@ RUN apt-get update --fix-missing && \
   apt-get -y install nano vim less --no-install-recommends && \
   apt-get clean
 
-RUN curl -Lo xampp-linux-installer.run "https://www.apachefriends.org/xampp-files/8.0.0/xampp-linux-x64-8.0.0-0-installer.run?from_af=true" && \
+RUN curl -Lo xampp-linux-installer.run "${XAMPP_URL}" && \
   chmod +x xampp-linux-installer.run && \
   bash -c './xampp-linux-installer.run' && \
   ln -sf /opt/lampp/lampp /usr/bin/lampp && \
