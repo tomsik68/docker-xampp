@@ -88,7 +88,7 @@ If you used the flag `-p 41062:80` with `docker run`, just browse to http://loca
 
 ## Use a Different XAMPP or PHP Version
 
-Currently, the Docker image is built only for the latest XAMPP version. 
+Currently, the Docker image is built only for PHP 5, 7 and 8.
 If you need another version, you can easily build a Docker image yourself, here's how:
 
 1. Clone this repo
