@@ -4,9 +4,9 @@
 
 | PHP version | Corresponding tag |
 --------------|---------------------
-| 8.0.2 | `tomsik68/docker-xampp:8`|
-| 7.3.7 | `tomsik68/docker-xampp:7` |
-| 5.6.28 | `tomsik68/docker-xampp:5` |
+| 8.0.2 | `tomsik68/xampp:8`|
+| 7.3.7 | `tomsik68/xampp:7` |
+| 5.6.28 | `tomsik68/xampp:5` |
 
 For PHP 8, start your container like this:
 ```bash
