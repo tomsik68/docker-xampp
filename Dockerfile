@@ -23,6 +23,8 @@ RUN curl -Lo xampp-linux-installer.run $XAMPP_URL && \
   ln -sf /opt/lampp/lampp /usr/bin/lampp && \
   # Enable XAMPP web interface(remove security checks)
   sed -i.bak s'/Require local/Require all granted/g' /opt/lampp/etc/extra/httpd-xampp.conf && \
+  # Enable error display in php
+  sed -i.bak s'/display_errors=Off/display_errors=On/g' /opt/lampp/etc/php.ini && \
   # Enable includes of several configuration files
   mkdir /opt/lampp/apache2/conf.d && \
   echo "IncludeOptional /opt/lampp/apache2/conf.d/*.conf" >> /opt/lampp/etc/httpd.conf && \
