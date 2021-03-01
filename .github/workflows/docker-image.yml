@@ -77,5 +77,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: tomsik68/xampp:5.6.28,tomsik68/xampp:5
-          build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/5.6.28/xampp-linux-x64-5.6.28-0-installer.run?from_af=true
+          tags: tomsik68/xampp:5.6.40,tomsik68/xampp:5
+          build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/5.6.40/xampp-linux-x64-5.6.40-1-installer.run?from_af=true
