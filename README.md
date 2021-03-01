@@ -45,6 +45,14 @@ ssh     | root     | root
 
 ## Additional How-tos
 
+### My app can't function in `/www` folder
+
+No problem, just mount your app in the `/opt/lampp/htdocs` folder, for example:
+
+```
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/opt/lampp/htdocs tomsik68/xampp
+```
+
 ### ssh connection
 
 default SSH password is 'root'.
