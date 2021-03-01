@@ -6,7 +6,7 @@
 --------------|---------------------
 | 8.0.2 | `tomsik68/xampp:8`|
 | 7.3.7 | `tomsik68/xampp:7` |
-| 5.6.28 | `tomsik68/xampp:5` |
+| 5.6.40 | `tomsik68/xampp:5` |
 
 For PHP 8, start your container like this:
 ```bash
@@ -92,6 +92,5 @@ Currently, the Docker image is built only for PHP 5, 7 and 8.
 If you need another version, you can easily build a Docker image yourself, here's how:
 
 1. Clone this repo
-2. Open `Dockerfile` with your favourite text editor
-3. Locate the curl command on line 18: https://github.com/tomsik68/docker-xampp/blob/0d0b77db8965b750197fa2ee27fb1e08aaf6a537/Dockerfile#L18
-4. Change the URL to a URL to your desired version. List of versions can be found here: https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/
+2. Find the URL to a URL to your desired version. List of versions can be found here: https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/
+3. Build the image using e.g. `docker build --build-arg XAMPP_URL="https://www.apachefriends.org/xampp-files/5.6.40/xampp-linux-x64-5.6.40-1-installer.run?from_af=true" .`
