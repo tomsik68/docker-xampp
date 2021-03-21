@@ -4,7 +4,7 @@
 
 | PHP version | Corresponding tag |
 --------------|---------------------
-| 8.0.2 | `tomsik68/xampp:8`|
+| 8.0.3 | `tomsik68/xampp:8`|
 | 7.3.7 | `tomsik68/xampp:7` |
 | 5.6.40 | `tomsik68/xampp:5` |
 
