@@ -3,6 +3,9 @@ name: Docker Image CI
 on:
   push:
     branches: master
+    paths:
+      - 'Dockerfile'
+      - '.github/**.yml'
 
 jobs:
   xampp8:
