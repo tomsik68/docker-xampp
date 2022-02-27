@@ -27,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: tomsik68/xampp:8.1.1,tomsik68/xampp:8,tomsik68/xampp:latest
-          build-args: XAMPP_URL=https://downloadsapachefriends.global.ssl.fastly.net/8.1.1/xampp-linux-x64-8.1.1-2-installer.run?from_af=true
+          tags: tomsik68/xampp:8.1.2,tomsik68/xampp:8,tomsik68/xampp:latest
+          build-args: XAMPP_URL=https://downloadsapachefriends.global.ssl.fastly.net/8.1.2/xampp-linux-x64-8.1.2-0-installer.run?from_af=true
 
   xampp7:
     runs-on: ubuntu-latest
@@ -52,8 +52,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: tomsik68/xampp:7.3.7,tomsik68/xampp:7
-          build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/7.3.7/xampp-linux-x64-7.3.7-1-installer.run?from_af=true
+          tags: tomsik68/xampp:7.4.27,tomsik68/xampp:7
+          build-args: XAMPP_URL=https://www.apachefriends.org/xampp-files/7.4.27/xampp-linux-x64-7.4.27-2-installer.run
 
   xampp5:
     runs-on: ubuntu-latest
