@@ -6,6 +6,8 @@ on:
     paths:
       - 'Dockerfile'
       - '.github/**.yml'
+      - 'startup.sh'
+      - 'supervisord-openssh-server.conf'
 
 jobs:
   xampp8:
