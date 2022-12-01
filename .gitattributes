@@ -1,0 +1,3 @@
+#*.sh scripts have to be checked out as having unix-style line endings, even on Windows.
+#Otherwise, the *.sh script (startup.sh) can't run properly after copying it from Windows host machines into the docker container.
+*.sh text eol=lf
