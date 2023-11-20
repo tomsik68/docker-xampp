@@ -1,6 +1,17 @@
-ARG BASE_DEBIAN=buster
-FROM debian:${BASE_DEBIAN}
+# Global args
+ARG BASE_DEBIAN=bookworm-slim
+
+################################################################################
+# We utilize this small alpine layer to cache the downloaded xampp installer
+################################################################################
+FROM alpine/curl as xampp_downloader
 ARG XAMPP_URL
+RUN curl -Lo xampp-linux-installer.run $XAMPP_URL
+
+################################################################################
+# Here, we build the xampp image
+################################################################################
+FROM debian:${BASE_DEBIAN}
 LABEL maintainer="Tomas Jasek<tomsik68 (at) gmail (dot) com>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -8,18 +19,18 @@ ENV DEBIAN_FRONTEND noninteractive
 # Set root password to root, format is 'user:password'.
 RUN echo 'root:root' | chpasswd
 
+# See https://docs.docker.com/develop/develop-images/instructions/#apt-get for apt-get guidelines
 RUN apt-get update --fix-missing && \
-  apt-get upgrade -y && \
   # curl is needed to download the xampp installer, net-tools provides netstat command for xampp
-  apt-get -y install curl net-tools && \
-  apt-get -yq install openssh-server supervisor && \
-  # Few handy utilities which are nice to have
-  apt-get -y install nano vim less --no-install-recommends && \
-  apt-get clean
+  apt-get install -y --no-install-recommends curl net-tools openssh-server \
+      supervisor nano vim less && \
+  rm -rf /var/lib/apt/lists/*
 
-RUN curl -Lo xampp-linux-installer.run $XAMPP_URL && \
-  chmod +x xampp-linux-installer.run && \
+COPY --from=xampp_downloader xampp-linux-installer.run .
+RUN chmod +x xampp-linux-installer.run && \
   bash -c './xampp-linux-installer.run' && \
+  # Delete the installer after it's done to make the resulting image smaller
+  rm xampp-linux-installer.run && \
   ln -sf /opt/lampp/lampp /usr/bin/lampp && \
   # Enable XAMPP web interface(remove security checks)
   sed -i.bak s'/Require local/Require all granted/g' /opt/lampp/etc/extra/httpd-xampp.conf && \
@@ -38,10 +49,7 @@ RUN curl -Lo xampp-linux-installer.run $XAMPP_URL && \
   sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # copy supervisor config file to start openssh-server
-COPY supervisord-openssh-server.conf /etc/supervisor/conf.d/supervisord-openssh-server.conf
-
-# copy a startup script
-COPY startup.sh /startup.sh
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME [ "/var/log/mysql/", "/var/log/apache2/", "/www", "/opt/lampp/apache2/conf.d/" ]
 
@@ -49,4 +57,4 @@ EXPOSE 3306
 EXPOSE 22
 EXPOSE 80
 
-CMD ["sh", "/startup.sh"]
+CMD ["/usr/bin/supervisord", "-n"]
