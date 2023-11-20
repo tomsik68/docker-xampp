@@ -1,6 +1,7 @@
-[![DockerHub:latest](https://github.com/tomsik68/docker-xampp/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tomsik68/docker-xampp/actions/workflows/docker-image.yml) 
-[![Docker Hub](https://img.shields.io/docker/pulls/tomsik68/xampp)](https://hub.docker.com/r/tomsik68/xampp)
-[![XAMPP version](https://img.shields.io/badge/XAMPP-8.1.6-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomsik68/docker-xampp/docker-image?style=for-the-badge&label=Docker%20Image%20CI)
+![Docker Pulls](https://img.shields.io/docker/pulls/tomsik68/xampp?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/XAMPP%20version-8.2.4-A?style=for-the-badge&link=https%3A%2F%2Fwww.apachefriends.org%2F)
+
 
 | PHP version | Corresponding tag |
 --------------|---------------------
@@ -99,6 +100,6 @@ If you used the flag `-p 41062:80` with `docker run`, just browse to http://loca
 Currently, the Docker image is built only for PHP 5, 7 and 8.
 If you need another version, you can easily build a Docker image yourself, here's how:
 
-1. Clone this repo
+1. Clone this repo (local clone is sufficient, no need to fork)
 2. Find the URL to a URL to your desired version. List of versions can be found here: https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/
 3. Build the image using e.g. `docker build --build-arg XAMPP_URL="https://www.apachefriends.org/xampp-files/5.6.40/xampp-linux-x64-5.6.40-1-installer.run?from_af=true" .`
