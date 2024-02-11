@@ -6,7 +6,7 @@ xamppnameOverride: xampp
 xamppfullnameOverride: xampp
 
 xampp:
-  enabled: false
+  enabled: true
   containers:
     replicaCount: 0
     containerPort: 80
