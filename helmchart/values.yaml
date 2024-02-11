@@ -24,13 +24,13 @@ xampp:
     create: true
     type: NodePort # ClusterIP
     serviceApplicationPort: 80
-    serviceApplicationnodePort: 41062
+    serviceApplicationnodePort: 31062
     serviceSFTPPort: 22
-    serviceSFTPnodePort: 41060
+    serviceSFTPnodePort: 31060
     serviceFTPPort: 21
-    serviceSTPnodePort: 41061
+    serviceSTPnodePort: 31061
     serviceMySQLPort: 3306
-    serviceMySQLnodePort: 41063
+    serviceMySQLnodePort: 31063
   ingress:
     enabled: false
   ingressRoute:
