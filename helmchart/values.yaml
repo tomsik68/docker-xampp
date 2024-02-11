@@ -4,6 +4,7 @@
 
 xamppnameOverride: xampp
 xamppfullnameOverride: xampp
+projectScope: xampp
 
 environment: dev
 
