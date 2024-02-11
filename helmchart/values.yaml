@@ -5,6 +5,8 @@
 xamppnameOverride: xampp
 xamppfullnameOverride: xampp
 
+environment: dev
+
 xampp:
   enabled: true
   containers:
@@ -19,7 +21,7 @@ xampp:
   # If service.type eq NodePort then specify static service.nodePort
   service:
     create: true
-    type: ClusterIP
+    type: NodePort # ClusterIP
     serviceApplicationPort: 80
     serviceApplicationnodePort: 41062
     serviceSFTPPort: 22
