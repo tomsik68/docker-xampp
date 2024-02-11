@@ -14,9 +14,9 @@ xampp:
     replicaCount: 0
     containerPort: 80
     image:
-      repository: 'registry.com/xampp/xampp'
+      repository: 'tomsik68/xampp'
       pullPolicy: Always
-      tag: demo
+      tag: "8"
     command: ""
   pipelinedeployed: ""
   # If service.type eq NodePort then specify static service.nodePort
