@@ -23,7 +23,5 @@ spec:
                 port:
                   number: 80
 
-  tls:
-    # Your TLS configuration goes here if needed
 {{- end }}
 {{- end }}
