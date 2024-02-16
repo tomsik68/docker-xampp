@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/name: traefik
 spec:
   rules:
-    - host: "{{.Values.host }}"
+    - host: "{{.Values.ingress.host }}"
       http:
         paths:
           - path: /
