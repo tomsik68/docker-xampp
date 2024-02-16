@@ -22,7 +22,7 @@ xampp:
   # If service.type eq NodePort then specify static service.nodePort
   service:
     create: true
-    type: NodePort # ClusterIP
+    type: ClusterIP
     serviceApplicationPort: 80
     serviceApplicationnodePort: 31062
     serviceSFTPPort: 22
@@ -33,6 +33,7 @@ xampp:
     serviceMySQLnodePort: 31063
   ingress:
     enabled: false
+    host: "example.local"
 
 
 

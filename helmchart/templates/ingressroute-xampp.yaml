@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/name: traefik
 spec:
   rules:
-    - host: "{{.Values.environment }}-xampp.{{.Values.applicationHostName }}"
+    - host: "{{.Values.host }}"
       http:
         paths:
           - path: /
