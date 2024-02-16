@@ -1,3 +1,6 @@
+# ##############################################################################
+# Xampp Helm Chart created by Fedir Indutnyi (Draft)
+# ##############################################################################
 # Default values for Xampp.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

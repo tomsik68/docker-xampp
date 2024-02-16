@@ -1,2 +1,2 @@
+For Linting Helm Chart Use:
 helm lint
-helm template . --debug
