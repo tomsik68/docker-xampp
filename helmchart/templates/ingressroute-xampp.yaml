@@ -1,12 +1,9 @@
 {{- if .Values.xampp.enabled -}}
-{{- if .Values.xampp.ingressRoute.enabled -}}
----
-apiVersion: traefik.io/v1alpha1
-# or 
-# apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+{{- if .Values.xampp.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: xampp-{{.Values.environment }}-iroute
+  name: xampp-{{.Values.environment }}-ing
   annotations:
     meta.helm.sh/release-name: traefik
     meta.helm.sh/release-namespace: kube-system
@@ -14,36 +11,19 @@ metadata:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
 spec:
-  entryPoints:
-    - web
-    - websecure
-    # - traefik
-  routes:
-    - kind: Rule
-      match: Host(`{{.Values.environment }}-xampp.{{.Values.applicationHostName }}`) && PathPrefix(`/`)
-      services:
-        - name: {{ include "xampp.fullname" . }}-{{.Values.environment }}-svc
-          port: 80
-          kind: Service
-      {{- if .Values.xampp.ingressRoute.middlewareEnabled -}}
-      middlewares:
-        - name: xampp-{{.Values.environment }}-mw
-      {{- end }}
----
-{{- if .Values.xampp.ingressRoute.middlewareEnabled -}}
-apiVersion: traefik.io/v1alpha1
-# or 
-# apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: xampp-{{.Values.environment }}-mw
-spec:
-  stripPrefix:
-    prefixes:
-      - "/"
+  rules:
+    - host: "{{.Values.environment }}-xampp.{{.Values.applicationHostName }}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "xampp.fullname" . }}-{{.Values.environment }}-svc
+                port:
+                  number: 80
 
-#  tls:
-#    secretName: local-example-com-staging-tls
-{{- end }}
+  tls:
+    # Your TLS configuration goes here if needed
 {{- end }}
 {{- end }}

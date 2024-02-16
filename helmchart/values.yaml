@@ -11,7 +11,7 @@ environment: dev
 xampp:
   enabled: true
   containers:
-    replicaCount: 0
+    replicaCount: 1
     containerPort: 80
     image:
       repository: 'tomsik68/xampp'
@@ -33,8 +33,7 @@ xampp:
     serviceMySQLnodePort: 31063
   ingress:
     enabled: false
-  ingressRoute:
-    enabled: false
+
 
 
 
