@@ -34,8 +34,10 @@ spec:
         # include timestamp from the pipeline:
         pipeline-deployed: "{{ .Values.xampp.pipelinedeployed }}"
     spec:
+      {{- if ne .Values.xampp.containers.imagePullSecretName "" }}
       imagePullSecrets:
         - name: regcred-{{.Values.environment }}-sct
+      {{- end }}  
       serviceAccountName: {{ include "xampp.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}

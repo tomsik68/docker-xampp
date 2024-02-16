@@ -21,6 +21,7 @@ xampp:
       pullPolicy: Always
       tag: "8"
     command: ""
+    imagePullSecretName: ""
   pipelinedeployed: ""
   # If service.type eq NodePort then specify static service.nodePort
   service:
