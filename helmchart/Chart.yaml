@@ -1,7 +1,7 @@
 apiVersion: v2
 name: xampp-app
 description: A Helm chart for deploying xampp to Kubernetes
-icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWCbdx-Q3vPxgNbFZxWehpU0arVYEJqgBFweZMwUAH1wUZIDvnj3vmKa8c8SL52wTDW_c&usqp=CAU
+icon: https://www.apachefriends.org/images/xampp-logo-ac950edf.svg
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
