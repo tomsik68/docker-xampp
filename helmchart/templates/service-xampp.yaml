@@ -1,0 +1,49 @@
+{{- if .Values.xampp.enabled -}}
+  {{- if .Values.xampp.service.create -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "xampp.fullname" . }}-{{.Values.environment }}-svc
+  labels:
+    {{- include "xampp.labels" . | nindent 4 }}
+    {{- include "xampp.additionalLabels" . | nindent 4 }}
+spec:
+  type: {{ .Values.xampp.service.type }}
+  ports:
+
+    - name: phpmyadmin
+      protocol: TCP
+      port: {{ .Values.xampp.service.serviceApplicationPort }} 
+      targetPort: 80
+      {{- if eq "NodePort" .Values.xampp.service.type }}
+      nodePort: {{ .Values.xampp.service.serviceApplicationnodePort }}
+      {{- end }}
+      
+    - name: sftp
+      protocol: TCP
+      port: {{ .Values.xampp.service.serviceSFTPPort }} 
+      targetPort: 22
+      {{- if eq "NodePort" .Values.xampp.service.type }}
+      nodePort: {{ .Values.xampp.service.serviceSFTPnodePort }}
+      {{- end }}
+
+    - name: ftp
+      protocol: TCP
+      port: {{ .Values.xampp.service.serviceFTPPort }} 
+      targetPort: 21
+      {{- if eq "NodePort" .Values.xampp.service.type }}
+      nodePort: {{ .Values.xampp.service.serviceFTPnodePort }}
+      {{- end }}
+
+    - name: mysql
+      protocol: TCP
+      port: {{ .Values.xampp.service.serviceMySQLPort }} 
+      targetPort: 3306
+      {{- if eq "NodePort" .Values.xampp.service.type }}
+      nodePort: {{ .Values.xampp.service.serviceMySQLnodePort }}
+      {{- end }}
+
+  selector:
+    {{- include "xampp.selectorLabels" . | nindent 4 }}
+  {{- end }}
+{{- end }}
