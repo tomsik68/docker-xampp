@@ -95,6 +95,27 @@ docker exec myXampp /opt/lampp/lampp restart
 
 If you used the flag `-p 41062:80` with `docker run`, just browse to http://localhost:41062/phpmyadmin/ .
 
+### Docker compose example
+```
+version: '3.8'
+
+services:
+  xampp:
+    image: tomsik68/xampp
+    ports:
+      - "44162:22"
+      - "41063:80"
+    volumes:
+      # Mount your web pages
+      - ./xampp/my_pages:/www
+      # Mount your apache configuration
+      - ./xampp/my_apache_conf/:/opt/lampp/apache2/conf.d
+      #Save MySQL data to be persistent
+      # add the dbs as needed
+      - ./xampp/mysql/mydb:/opt/lampp/var/mysql/mydb
+    restart: always
+```
+
 ## Use a Different XAMPP or PHP Version
 
 Currently, the Docker image is built only for PHP 5, 7 and 8.
