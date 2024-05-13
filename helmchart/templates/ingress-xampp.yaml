@@ -1,0 +1,27 @@
+{{- if .Values.xampp.enabled -}}
+{{- if .Values.xampp.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xampp-{{.Values.environment }}-ing
+  annotations:
+    meta.helm.sh/release-name: traefik
+    meta.helm.sh/release-namespace: kube-system
+  labels:
+    app.kubernetes.io/instance: traefik-kube-system
+    app.kubernetes.io/name: traefik
+spec:
+  rules:
+    - host: "{{.Values.xampp.ingress.host }}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "xampp.fullname" . }}-{{.Values.environment }}-svc
+                port:
+                  number: 80
+
+{{- end }}
+{{- end }}
