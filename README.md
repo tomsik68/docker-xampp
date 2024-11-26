@@ -1,11 +1,11 @@
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomsik68/docker-xampp/docker-image.yml?link=https%3A%2F%2Fgithub.com%2Ftomsik68%2Fdocker-xampp%2Factions%2Fworkflows%2Fdocker-image.yml&style=for-the-badge)
-![Docker Pulls](https://img.shields.io/docker/pulls/tomsik68/xampp?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/XAMPP%20version-8.2.4-A?style=for-the-badge&link=https%3A%2F%2Fwww.apachefriends.org%2F)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomsik68/docker-xampp/docker-image?style=for-the-badge&label=Docker%20Image%20CI)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tomsik68/xampp?style=for-the-badge)](https://hub.docker.com/r/tomsik68/xampp/)
+[![Static Badge](https://img.shields.io/badge/XAMPP%20version-8.2.12-A?style=for-the-badge&link=https%3A%2F%2Fwww.apachefriends.org%2F)](https://www.apachefriends.org)
 
 
 | PHP version | Corresponding tag |
 --------------|---------------------
-| 8.2.4 | `tomsik68/xampp:8`|
+| 8.2.12 | `tomsik68/xampp:8`|
 | 7.4.33 | `tomsik68/xampp:7` |
 | 5.6.40 | `tomsik68/xampp:5` |
 

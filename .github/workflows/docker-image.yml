@@ -32,8 +32,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: tomsik68/xampp:8.2.4,tomsik68/xampp:8,tomsik68/xampp:latest
-          build-args: XAMPP_URL=https://altushost-swe.dl.sourceforge.net/project/xampp/XAMPP%20Linux/8.2.4/xampp-linux-x64-8.2.4-0-installer.run
+          tags: tomsik68/xampp:8.2.12,tomsik68/xampp:8,tomsik68/xampp:latest
+          build-args: XAMPP_URL=https://kumisystems.dl.sourceforge.net/project/xampp/XAMPP%20Linux/8.2.12/xampp-linux-x64-8.2.12-0-installer.run?viasf=1
 
   xampp7:
     runs-on: ubuntu-latest
