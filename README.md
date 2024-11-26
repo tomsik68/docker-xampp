@@ -1,4 +1,4 @@
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomsik68/docker-xampp/docker-image?style=for-the-badge&label=Docker%20Image%20CI)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomsik68/docker-xampp/docker-image.yml?style=for-the-badge&label=Docker%20Image%20CI)
 [![Docker Pulls](https://img.shields.io/docker/pulls/tomsik68/xampp?style=for-the-badge)](https://hub.docker.com/r/tomsik68/xampp/)
 [![Static Badge](https://img.shields.io/badge/XAMPP%20version-8.2.12-A?style=for-the-badge&link=https%3A%2F%2Fwww.apachefriends.org%2F)](https://www.apachefriends.org)
 
