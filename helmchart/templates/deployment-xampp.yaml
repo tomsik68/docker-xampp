@@ -1,0 +1,84 @@
+{{- if .Values.xampp.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "xampp.fullname" . }}-{{.Values.environment }}-deploy
+  {{- with .Values.podAnnotations }}
+  annotations:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    # include Gitlab CI canary label for integration with CI canary deployment
+    track: canary
+    {{- include "xampp.labels" . | nindent 4 }}
+    {{- include "xampp.additionalLabels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.xampp.containers.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "xampp.selectorLabels" . | nindent 6 }}
+  revisionHistoryLimit: 1 # Default to 10 if not specified
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        # include Gitlab CI canary label for integration with CI canary deployment
+        track: canary
+        {{- include "xampp.selectorLabels" . | nindent 8 }}
+        {{- include "xampp.additionalLabels" . | nindent 8 }}
+        # include timestamp from the pipeline:
+        pipeline-deployed: "{{ .Values.xampp.pipelinedeployed }}"
+    spec:
+      {{- if ne .Values.xampp.containers.imagePullSecretName "" }}
+      imagePullSecrets:
+        - name: regcred-{{.Values.environment }}-sct
+      {{- end }}  
+      serviceAccountName: {{ include "xampp.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.xampp.containers.image.repository }}:{{ .Values.xampp.containers.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.xampp.containers.image.pullPolicy }}
+          {{- if ne .Values.xampp.containers.command "" }}
+          # command: ["dumb-init", "npm", "run", "start:demo"]
+          command: ["/bin/sh", "-c", {{ .Values.xampp.containers.command | quote }}]
+          {{- end }}    
+          ports:
+            - name: http
+              containerPort: {{ .Values.xampp.containers.containerPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 90
+            periodSeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 90
+            periodSeconds: 120
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
