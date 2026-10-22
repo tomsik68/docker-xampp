@@ -2,6 +2,12 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/tomsik68/xampp?style=for-the-badge)](https://hub.docker.com/r/tomsik68/xampp/)
 [![Static Badge](https://img.shields.io/badge/XAMPP%20version-8.2.12-A?style=for-the-badge&link=https%3A%2F%2Fwww.apachefriends.org%2F)](https://www.apachefriends.org)
 
+> [!WARNING]
+> **This image is deprecated and no longer receives security updates.** Its PHP, MariaDB and Apache versions have known vulnerabilities.
+>
+> Use **[tomsik68/lamp](https://hub.docker.com/r/tomsik68/lamp)** instead: one `docker run`, supported PHP versions only, rebuilt automatically for CVEs. Follow the **[migration guide](https://github.com/tomsik68/lamp/blob/main/docs/migrating-from-xampp.md)**.
+>
+> **Timeline:** no tags are deleted. Since 2026-10-22, every tag prints a deprecation banner on startup. From **2027-01-22**, every tag will refuse to start unless you set `-e XAMPP_I_ACCEPT_THE_RISK=1`. Shortly after that, this repository will be archived.
 
 | PHP version | Corresponding tag |
 --------------|---------------------
